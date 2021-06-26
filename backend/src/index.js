@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const { Auth } = require("two-step-auth");
 const app = express()
-const port = 3000
+const port = 4000
 
 
 mongoose.connect('mongodb://localhost:27017/voteblock', {useNewUrlParser:true, useUnifiedTopology:true})
