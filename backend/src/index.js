@@ -54,6 +54,11 @@ app.use(cookieParser("Secret"))
 
 var sess;
 
+app.post("/post", (req, res) => {
+  console.log("Connected to React");
+  res.redirect("/");
+});
+
 app.get('/register', (req, res) => {
   res.send("Register Page");
 })
