@@ -54,20 +54,15 @@ app.use(cookieParser("Secret"))
 
 var sess;
 
-app.post("/post", (req, res) => {
-  console.log("Connected to React");
-  res.redirect("/");
-});
-
-app.get('/register', (req, res) => {
-  res.send("Register Page");
+app.get('/', (req, res) => {
+  res.send("Register page");
 })
 
 app.post('/register', (req, res) => {
   if(req.body.pass1 != req.body.pass2)
   {
     console.log("Passwords Do not Match!");
-    return res.redirect("/register");
+    return res.render("../../frontend/src/App.js");
   }
 
   User_Detail.findOne({email: req.body.email}).then(function(data){
@@ -82,7 +77,8 @@ app.post('/register', (req, res) => {
           "date" : req.body.dob,
         }
       )
-      user.save();
+      console.log(user);
+      // user.save();
         req.session.email = req.body.email;
         res.redirect('/home');
     }
