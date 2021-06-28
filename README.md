@@ -1,2 +1,2 @@
 # VoteBlock
-VoteBlock
+VoteBlock- a decentralized voting application
