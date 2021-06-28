@@ -5,13 +5,13 @@ function Register(){
     return (
         <div className="container">
         <h1>Registration Page</h1>
-        <form className="form">
-          <Input type="text" placeholder="Registration Number" />
-          <Input type="text" placeholder="Name" />
-          <Input type="text" placeholder="Date of Birth" />
-          <Input type="text" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
-          <Input type="password" placeholder="Confirm Password" />
+        <form className="form" action="/register" method="POST">
+          <Input type="text" name="regno" placeholder="Registration Number" />
+          <Input type="text" name="name" placeholder="Name" />
+          <Input type="date" name="dob" placeholder="Date of Birth" />
+          <Input type="email" name="email" placeholder="Email" />
+          <Input type="password" name="pass1" placeholder="Password" />
+          <Input type="password" name="pass2" placeholder="Confirm Password" />
 
           <button type="submit">Register</button>
         </form>
