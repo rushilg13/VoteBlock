@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Reset Password</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel='stylesheet' type='text/css' media='screen' href='../public/main.css'>
+    <script src='main.js'></script>
+</head>
+<style>
+    body{
+    
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+.input{
+    padding:10px;
+}
+
+ 
+.container {
+    border: rgb(192, 192, 192) 2px solid;
+    padding: 10px;
+	width: 400px;
+	height: 300px;
+	background-color: white;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.register-btn{
+    width: 400px; 
+    background-color: #d9534f; 
+    border: none; 
+    border-radius: 3px; 
+    color: white;
+    height: 30px;
+}
+
+.anchor {
+    color: #d9534f;
+    text-decoration: none;
+} 
+</style>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;"> <i class="fas fa-sign-out-alt"></i> Reset Password</h1> <br>
+        <form action="/reset" method="POST">
+            <label for="email">Email</label> <br>
+            <input class="input" type="email" name="email" id="email" size="50" placeholder="newuser@gmail.com" required> <br><br>
+
+            <button type="submit" class="register-btn">Send OTP</button> <br><br>
+        </form>
+        Have an Account? <a class="anchor" href="/login">Login</a> <br>
+        No Account? <a class="anchor" href="/register">Register</a>
+    </div>
+</body>
+</html>
