@@ -3,7 +3,11 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 } 
- 
+
+.input{
+    padding:10px;
+}
+
 .container {
     border: rgb(192, 192, 192) 2px solid;
     padding: 10px;

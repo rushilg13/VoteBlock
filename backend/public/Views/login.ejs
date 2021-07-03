@@ -15,6 +15,9 @@
     background-size: cover;
 } 
  
+.input{
+padding:10px;
+}
 .container {
     border: rgb(192, 192, 192) 2px solid;
     padding: 10px;
@@ -48,10 +51,10 @@
         <h1 style="text-align: center;"> <i class="fas fa-sign-out-alt"></i> Login</h1> <br>
         <form action="/login" method="POST">
             <label for="email">Email</label> <br>
-            <input type="email" name="email" id="email" size="57" placeholder="newuser@gmail.com" required> <br><br>
+            <input class="input" type="email" name="email" id="email" size="50" placeholder="newuser@gmail.com" required> <br><br>
 
             <label for="pass1">Password</label> <br>
-            <input type="password" name="pass1" id="pass1" size="57" placeholder="Password" required> <br><br>
+            <input class="input" type="password" name="pass1" id="pass1" size="50" placeholder="Password" required> <br><br>
 
             <button type="submit" class="register-btn">Login</button> <br><br>
         </form>

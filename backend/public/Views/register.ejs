@@ -16,7 +16,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 } 
- 
+.input{
+    padding:10px;
+}
+
 .container {
     border: rgb(192, 192, 192) 2px solid;
     padding: 10px;
@@ -50,22 +53,22 @@
         <h1 style="text-align: center;"> <i class="fas fa-sign-out-alt"></i> Register</h1> <br>
         <form action="/register" method="POST">
             <label for="name">Name</label> <br>
-            <input type="text" name="name" id="name" size="57" placeholder="New User" required> <br><br>
+            <input class="input" type="text" name="name" id="name" size="50" placeholder="New User" required> <br><br>
+
+            <label for="regno">Registration Number</label> <br>
+            <input class="input" type="text" name="regno" id="regno" size="50" placeholder="Registration Number" required> <br><br>
 
             <label for="email">Email</label> <br>
-            <input type="email" name="email" id="email" size="57" placeholder="newuser@gmail.com" required> <br><br>
-
-            <label for="org">Organization</label> <br>
-            <input type="text" name="org" id="org" size="57" placeholder="Some Organization" required> <br><br>
+            <input class="input" type="email" name="email" id="email" size="50" placeholder="newuser@gmail.com" required> <br><br>
 
             <label for="dob">Date of Birth</label> <br>
-            <input type="date" name="dob" id="dob" style="width: 400px;" required> <br><br>
+            <input class="input" type="date" name="dob" id="dob" style="width: 400px;" required> <br><br>
 
             <label for="pass1">Password</label> <br>
-            <input type="password" name="pass1" id="pass1" size="57" placeholder="Password" required> <br><br>
+            <input class="input" type="password" name="pass1" id="pass1" size="50" placeholder="Password" required> <br><br>
 
             <label for="pass2">Confirm Password</label> <br>
-            <input type="password" name="pass2" id="pass2" size="57" placeholder="Confirm Password" required> <br><br>
+            <input class="input" type="password" name="pass2" id="pass2" size="50" placeholder="Confirm Password" required> <br><br>
 
             <button type="submit" class="register-btn">Register</button> <br><br>
         </form>

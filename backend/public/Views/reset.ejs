@@ -11,11 +11,15 @@
 </head>
 <style>
     body{
-    background-image: url('band-bg.jpg');
+    
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
 } 
+.input{
+    padding:10px;
+}
+
  
 .container {
     border: rgb(192, 192, 192) 2px solid;
@@ -50,7 +54,7 @@
         <h1 style="text-align: center;"> <i class="fas fa-sign-out-alt"></i> Reset Password</h1> <br>
         <form action="/reset" method="POST">
             <label for="email">Email</label> <br>
-            <input type="email" name="email" id="email" size="57" placeholder="newuser@gmail.com" required> <br><br>
+            <input class="input" type="email" name="email" id="email" size="50" placeholder="newuser@gmail.com" required> <br><br>
 
             <button type="submit" class="register-btn">Send OTP</button> <br><br>
         </form>
