@@ -81,11 +81,11 @@ app.post('/register', (req, res) => {
           "name" : req.body.name,
           "email" : req.body.email,
           "password" : req.body.pass1,
-          "date" : req.body.dob,
+          "dob" : req.body.dob,
         }
       )
       console.log(user);
-      // user.save();
+      user.save();
         req.session.email = req.body.email;
         res.redirect('/home');
     }
