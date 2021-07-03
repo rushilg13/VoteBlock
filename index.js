@@ -43,7 +43,8 @@ getDocument();
 const login = async (emailId) => {
   const res = await Auth(emailId, "VOTEBLOCK");
   console.log(res.mail, res.OTP);
-  User_Detail.updateOne({email: res.mail}, {otp: res.OTP});
+  User_Details.updateOne({email: res.mail}, {otp: res.OTP}).then(function(data){
+  });
 }
 
 // login("rushil@gmail.com");
@@ -58,6 +59,11 @@ var sess;
 app.get('/', (req, res) => {
   res.render('register.ejs');
 })
+
+app.get('/register', (req, res) => {
+  res.render('register.ejs');
+})
+
 
 app.post('/register', (req, res) => {
   if(req.body.pass1 != req.body.pass2)
