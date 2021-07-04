@@ -7,6 +7,7 @@ const { Auth } = require("two-step-auth");
 const app = express()
 const port = 4000
 
+app.set('view engine', 'ejs')
 
 mongoose.connect('mongodb://localhost:27017/voteblock', {useNewUrlParser:true, useUnifiedTopology:true})
 .then( () => console.log("Connection Successfull!"))
@@ -41,8 +42,9 @@ getDocument();
 
 const login = async (emailId) => {
   const res = await Auth(emailId, "VOTEBLOCK");
-  console.log(res.OTP);
-  User_Detail.updateOne({email: res.mail}, {otp: res.OTP});
+  console.log(res.mail, res.OTP);
+  User_Details.updateOne({email: res.mail}, {otp: res.OTP}).then(function(data){
+  });
 }
 
 // login("rushil@gmail.com");
@@ -55,14 +57,19 @@ app.use(cookieParser("Secret"))
 var sess;
 
 app.get('/', (req, res) => {
-  res.send("Register page");
+  res.render('register.ejs');
 })
+
+app.get('/register', (req, res) => {
+  res.render('register.ejs');
+})
+
 
 app.post('/register', (req, res) => {
   if(req.body.pass1 != req.body.pass2)
   {
     console.log("Passwords Do not Match!");
-    return res.render("../../frontend/src/App.js");
+    return res.render('register.ejs');
   }
 
   User_Detail.findOne({email: req.body.email}).then(function(data){
@@ -74,11 +81,11 @@ app.post('/register', (req, res) => {
           "name" : req.body.name,
           "email" : req.body.email,
           "password" : req.body.pass1,
-          "date" : req.body.dob,
+          "dob" : req.body.dob,
         }
       )
       console.log(user);
-      // user.save();
+      user.save();
         req.session.email = req.body.email;
         res.redirect('/home');
     }
@@ -92,7 +99,7 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-  res.send("Login Page");
+  res.render('login.ejs');
 })
 
 app.post('/login', (req, res) => {
@@ -119,7 +126,7 @@ app.post('/login', (req, res) => {
 app.get('/home', (req, res) => {
   if (!req.session.email)
   {return res.status(401).redirect('/login');}
-  res.send("HOME PAGE");
+  res.render('home.ejs');
 })
 
 app.get('/logout', (req, res) => {
@@ -132,7 +139,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/reset', (req, res) => {
-  res.send('reset Password page');
+  res.render('reset.ejs');
 })
 
 app.post('/reset', (req, res) =>{
@@ -152,7 +159,7 @@ app.post('/reset', (req, res) =>{
 })
 
 app.get('/otp', (req, res) => {
-  res.send("OTP PAGE");
+  res.render('otp.ejs');
 })
 
 app.post('/otp', (req, res) =>{
@@ -169,6 +176,7 @@ app.post('/otp', (req, res) =>{
       }
       else
       {
+        console.log(data.otp)
         console.log('Incorrect OTP');
         res.redirect('/otp');
       }
@@ -177,7 +185,7 @@ app.post('/otp', (req, res) =>{
 })
 
 app.get('/password', (req, res) => {
-  res.send("New password page");
+  res.render('password.ejs');
 })
 
 app.post('/password', (req, res) => {
