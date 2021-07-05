@@ -43,7 +43,7 @@ getDocument();
 const login = async (emailId) => {
   const res = await Auth(emailId, "VOTEBLOCK");
   console.log(res.mail, res.OTP);
-  User_Details.updateOne({email: res.mail}, {otp: res.OTP}).then(function(data){
+  User_Detail.updateOne({email: res.mail}, {otp: res.OTP}).then(function(data){
   });
 }
 
